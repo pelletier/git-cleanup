@@ -70,7 +70,22 @@ func gitDeleteBranch(branch string) {
 	}
 }
 
+func gitFetchPrune() {
+	fmt.Println("Fetching and pruning remote tracking branches")
+	cmd := exec.Command("git", "fetch", "-p")
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	cmd.Stderr = &out
+	err := cmd.Run()
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "Could not fetch remotes:", err, "\n", out.String())
+		os.Exit(4)
+	}
+}
+
 func main() {
+	gitFetchPrune()
+
 	cmd := exec.Command("git", "branch", "-a")
 	var out bytes.Buffer
 	cmd.Stdout = &out
