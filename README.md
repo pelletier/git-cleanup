@@ -14,3 +14,4 @@ go install github.com/pelletier/git-cleanup
 Put one of those anywhere in `$PATH`.
 
 * [macOS](https://github.com/pelletier/git-cleanup/releases/download/0.1/macOS)
+* [linux x64](https://github.com/pelletier/git-cleanup/releases/download/0.1/linux-x64)
